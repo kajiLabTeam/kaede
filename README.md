@@ -9,15 +9,8 @@ pnpm run dev
 pnpm run deploy
 ```
 
-[For generating/synchronizing types based on your Worker configuration run](https://developers.cloudflare.com/workers/wrangler/commands/#types):
+## Linter,Formatter
 
-```txt
-pnpm run cf-typegen
-```
-
-Pass the `CloudflareBindings` as generics when instantiation `Hono`:
-
-```ts
-// src/index.ts
-const app = new Hono<{ Bindings: CloudflareBindings }>()
-```
+Linterの実行:`pnpm lint`
+Linterの実行時にFixableな箇所を直す:`pnpm lint:format`
+Formatterを実行:`pnpm format`
