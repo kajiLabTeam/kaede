@@ -2,7 +2,7 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "kaede",
   "main": "src/index.ts",
-  "compatibility_date": "2026-02-27"
+  "compatibility_date": "2026-02-27",
   // "compatibility_flags": [
   //   "nodejs_compat"
   // ],
