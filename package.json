@@ -7,7 +7,8 @@
     "cf-typegen": "wrangler types --env-interface CloudflareBindings",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "prepare": "husky"
   },
   "dependencies": {
     "@hono/eslint-config": "^2.0.6",
@@ -17,6 +18,22 @@
     "prettier": "^3.8.1"
   },
   "devDependencies": {
+    "@cloudflare/workers-types": "4.20260305.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
     "wrangler": "^4.4.0"
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,yml}": [
+      "prettier --write"
+    ]
+  },
+  "engines": {
+    "node": ">=22.13.0",
+    "pnpm": ">=10.0.0"
   }
 }

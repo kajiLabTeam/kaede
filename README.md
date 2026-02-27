@@ -1,5 +1,14 @@
 # kaede
 
+## 実行
+
+バージョン
+
+```
+node.js : >= 22.13.0
+pnpm : >= 10.0.0
+```
+
 ```txt
 pnpm install
 pnpm run dev
