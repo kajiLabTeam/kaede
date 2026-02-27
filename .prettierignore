@@ -1,0 +1,8 @@
+dist/
+build/
+.wrangler/
+
+node_modules/
+
+.github/
+.vscode/
