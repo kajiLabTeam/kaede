@@ -1,4 +1,5 @@
 import type { Context } from 'hono'
+import Papa from 'papaparse'
 
 export const uploadSensorData = async (c: Context) => {
   try {
@@ -15,10 +16,16 @@ export const uploadSensorData = async (c: Context) => {
     }
 
     const text = await file.text()
-    const rows = text
-      .trim()
-      .split('\n')
-      .map((row) => row.split(','))
+
+    // csvをparse
+    const parseResult = Papa.parse(text, {
+      header: true,
+      skipEmptyLines: true,
+    })
+
+    if (parseResult.errors.length > 0) {
+      console.warn('PapaParse Errors:', parseResult.errors)
+    }
 
     return c.json({
       message: 'アップロード成功',
@@ -27,7 +34,7 @@ export const uploadSensorData = async (c: Context) => {
         size: file.size,
         type: file.type,
       },
-      data: rows,
+      data: parseResult.data,
     })
   } catch (error) {
     console.error('Upload Error:', error)

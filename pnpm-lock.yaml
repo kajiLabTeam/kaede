@@ -10,6 +10,9 @@ importers:
       '@hono/eslint-config':
         specifier: ^2.0.6
         version: 2.0.6(@typescript-eslint/utils@8.56.1(eslint@9.39.3)(typescript@5.9.3))(eslint@9.39.3)(typescript@5.9.3)
+      '@types/papaparse':
+        specifier: ^5.5.2
+        version: 5.5.2
       eslint:
         specifier: ^9.0.0
         version: 9.39.3
@@ -19,6 +22,9 @@ importers:
       hono:
         specifier: ^4.12.3
         version: 4.12.3
+      papaparse:
+        specifier: ^5.5.3
+        version: 5.5.3
       prettier:
         specifier: ^3.8.1
         version: 3.8.1
@@ -761,6 +767,12 @@ packages:
     resolution:
       {
         integrity: sha512-DpzbrH7wIcBaJibpKo9nnSQL0MTRdnWttGyE5haGwK86xgMOkFLp7vEyfQPGLOJh5wNYiJ3V9PmUMDhV9u8kkQ==,
+      }
+
+  '@types/papaparse@5.5.2':
+    resolution:
+      {
+        integrity: sha512-gFnFp/JMzLHCwRf7tQHrNnfhN4eYBVYYI897CGX4MY1tzY9l2aLkVyx2IlKZ/SAqDbB3I1AOZW5gTMGGsqWliA==,
       }
 
   '@typescript-eslint/eslint-plugin@8.56.1':
@@ -1786,6 +1798,12 @@ packages:
       }
     engines: { node: '>=10' }
 
+  papaparse@5.5.3:
+    resolution:
+      {
+        integrity: sha512-5QvjGxYVjxO59MGU2lHVYpRWBBtKHnlIAcSe1uNFCkkptUh63NFRj0FJQm7nR67puEruUci/ZkjmEFrjCAyP4A==,
+      }
+
   parent-module@1.0.1:
     resolution:
       {
@@ -2511,6 +2529,10 @@ snapshots:
     dependencies:
       undici-types: 7.18.2
 
+  '@types/papaparse@5.5.2':
+    dependencies:
+      '@types/node': 25.3.3
+
   '@typescript-eslint/eslint-plugin@8.56.1(@typescript-eslint/parser@8.56.1(eslint@9.39.3)(typescript@5.9.3))(eslint@9.39.3)(typescript@5.9.3)':
     dependencies:
       '@eslint-community/regexpp': 4.12.2
@@ -3130,6 +3152,8 @@ snapshots:
   p-locate@5.0.0:
     dependencies:
       p-limit: 3.1.0
+
+  papaparse@5.5.3: {}
 
   parent-module@1.0.1:
     dependencies:
