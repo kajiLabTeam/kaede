@@ -4,37 +4,58 @@ import Papa from 'papaparse'
 export const uploadSensorData = async (c: Context) => {
   try {
     // リクエストボディから FormData をパース
-    const body = await c.req.parseBody()
-    const file = body.file
+    const body = await c.req.parseBody({ all: true })
 
-    if (!file || !(file instanceof File)) {
+    // bodyから値取得(モバイル)
+    const floorMapId = body.floorMapId
+    const initialPosition = body.initialPosition
+    const initialAngle = body.initialAngle
+    let files = body.file
+
+    if (!files) {
       return c.json({ error: 'CSVファイルがアップロードされていません' }, 400)
     }
 
-    if (!file.name.endsWith('.csv')) {
-      return c.json({ error: 'CSV形式のファイルのみ許可されています' }, 400)
-    }
-
-    const text = await file.text()
-
-    // csvをparse
-    const parseResult = Papa.parse(text, {
-      header: true,
-      skipEmptyLines: true,
+    console.log({
+      floorMapId,
+      initialPosition,
+      initialAngle,
+      files,
     })
 
-    if (parseResult.errors.length > 0) {
-      console.warn('PapaParse Errors:', parseResult.errors)
+    if (!Array.isArray(files)) {
+      files = [files]
+    }
+
+    // csvをparse
+    const processedFiles = []
+    for (const file of files) {
+      if (typeof file === 'string') continue
+
+      const text = await file.text()
+
+      const parseResult = Papa.parse(text, {
+        skipEmptyLines: true,
+        header: true,
+      })
+
+      if (parseResult.errors.length > 0) {
+        console.warn('parse error:', parseResult.errors)
+      }
+
+      processedFiles.push({
+        fileInfo: {
+          name: file.name,
+          size: file.size,
+          type: file.type,
+        },
+        data: parseResult,
+      })
     }
 
     return c.json({
       message: 'アップロード成功',
-      fileInfo: {
-        name: file.name,
-        size: file.size,
-        type: file.type,
-      },
-      data: parseResult.data,
+      files: processedFiles,
     })
   } catch (error) {
     console.error('Upload Error:', error)
