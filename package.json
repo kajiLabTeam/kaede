@@ -19,6 +19,7 @@
   },
   "devDependencies": {
     "@cloudflare/workers-types": "4.20260305.0",
+    "@types/node": "^25.3.3",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.7",
     "wrangler": "^4.4.0"
