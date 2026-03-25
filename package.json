@@ -12,14 +12,14 @@
   },
   "dependencies": {
     "@hono/node-server": "^1.19.11",
-    "hono": "^4.12.9",
-    "@hono/eslint-config": "^2.0.6",
-    "eslint": "^9.0.0",
-    "eslint-config-prettier": "^10.1.8",
-    "prettier": "^3.8.1"
+    "hono": "^4.12.9"
   },
   "devDependencies": {
+    "@hono/eslint-config": "^2.0.6",
     "@types/node": "^20.11.17",
+    "eslint": "^9.0.0",
+    "eslint-config-prettier": "^10.1.8",
+    "prettier": "^3.8.1",
     "tsx": "^4.7.1",
     "typescript": "^5.8.3",
     "husky": "^9.1.7",

@@ -8,34 +8,34 @@ importers:
 
   .:
     dependencies:
-      '@hono/eslint-config':
-        specifier: ^2.0.6
-        version: 2.1.0(@typescript-eslint/utils@8.57.2(eslint@9.39.4)(typescript@5.9.3))(eslint@9.39.4)(typescript@5.9.3)
       '@hono/node-server':
         specifier: ^1.19.11
         version: 1.19.11(hono@4.12.9)
+      hono:
+        specifier: ^4.12.9
+        version: 4.12.9
+    devDependencies:
+      '@hono/eslint-config':
+        specifier: ^2.0.6
+        version: 2.1.0(@typescript-eslint/utils@8.57.2(eslint@9.39.4)(typescript@5.9.3))(eslint@9.39.4)(typescript@5.9.3)
+      '@types/node':
+        specifier: ^20.11.17
+        version: 20.19.37
       eslint:
         specifier: ^9.0.0
         version: 9.39.4
       eslint-config-prettier:
         specifier: ^10.1.8
         version: 10.1.8(eslint@9.39.4)
-      hono:
-        specifier: ^4.12.9
-        version: 4.12.9
-      prettier:
-        specifier: ^3.8.1
-        version: 3.8.1
-    devDependencies:
-      '@types/node':
-        specifier: ^20.11.17
-        version: 20.19.37
       husky:
         specifier: ^9.1.7
         version: 9.1.7
       lint-staged:
         specifier: ^16.2.7
         version: 16.4.0
+      prettier:
+        specifier: ^3.8.1
+        version: 3.8.1
       tsx:
         specifier: ^4.7.1
         version: 4.21.0
