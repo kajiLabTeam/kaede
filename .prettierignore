@@ -1,6 +1,5 @@
 dist/
 build/
-.wrangler/
 
 node_modules/
 
